@@ -8,7 +8,7 @@
         <property name="configOverrideMap">
             <map>
                 <entry key="sfdc.entity" value="Account"/>
-                <entry key="sfdc.extractionSOQL" value="SELECT id, ISDELETED, NAME, TYPE, PARENTID, OWNERID, CREATEDDATE, CREATEDBYID, LASTMODIFIEDDATE, LASTMODIFIEDBYID, ISPARTNER, ISCUSTOMERPORTAL FROM Account"/>
+                <entry key="sfdc.extractionSOQL" value="SELECT id, ISDELETED, NAME, TYPE, PARENTID, OWNERID, CREATEDDATE, CREATEDBYID, LASTMODIFIEDDATE, LASTMODIFIEDBYID FROM Account"/>
                 <entry key="process.operation" value="extract"/>
                 <entry key="process.mappingFile" value="/opt/dataloader/conf/accountExtractMap.sdl"/>
                 <entry key="dataAccess.type" value="csvWrite"/>

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  dbdl:
+#    image: okazakiyuji/dataloader
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+      - SITE=${SF_SITE}
+      - USRNAME=${SF_USRNAME}
+      - PASSWD=${SF_PASSWD}
+

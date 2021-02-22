@@ -13,5 +13,5 @@ function dl_process () {
 
 dl_process csvAccountExtractProcess
 
-
+cat /opt/dataloader/data/accoutExtract.csv
 
