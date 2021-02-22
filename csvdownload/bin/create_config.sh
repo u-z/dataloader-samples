@@ -28,15 +28,8 @@ if [ -f $KEY_FILE ] ; then
     rm $KEY_FILE
 fi
 # 暗号化済パスワードを作成する
-java -cp $DATALOADER_CLASSPATH com.salesforce.dataloader.security.EncryptionUtil -e $PASSWD $KEY_FILE > /dev/null
-if [ $? = 0 ] ; then
-    # V42.1.0では-e オプション一発で作成できたが
-    ENC_PW=`java -cp $DATALOADER_CLASSPATH com.salesforce.dataloader.security.EncryptionUtil -e $PASSWD $KEY_FILE | sed -n 2P`
-else
-    KEYWD=`mkpasswd -s 0 -d 0 -l 16`
-    java -cp $DATALOADER_CLASSPATH com.salesforce.dataloader.security.EncryptionUtil -g $KEYWD | sed -e "s/.* - //1" > $KEY_FILE
-    ENC_PW=`java -cp $DATALOADER_CLASSPATH com.salesforce.dataloader.security.EncryptionUtil -e $PASSWD $KEY_FILE | sed -e "s/.* - //1"`
-fi
+java -cp $DATALOADER_CLASSPATH com.salesforce.dataloader.security.EncryptionUtil -k $KEY_FILE
+ENC_PW=`java -cp $DATALOADER_CLASSPATH com.salesforce.dataloader.security.EncryptionUtil -e $PASSWD $KEY_FILE | sed -n 2P`
 echo "# config.properties" > $CONF_ROOT/config.properties
 echo process.encryptionKeyFile=$KEY_FILE >> $CONF_ROOT/config.properties
 echo sfdc.endpoint=https://$SITE >> $CONF_ROOT/config.properties
