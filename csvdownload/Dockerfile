@@ -1,4 +1,4 @@
-FROM okazakiyuji/dataloader
+FROM okazakiyuji/dataloader:cent8-DL50.0.0
 MAINTAINER okazakiyuji <zaki@mbf.nifty.com>
 WORKDIR $DL_ROOT
 ARG PASSWD
