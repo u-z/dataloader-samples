@@ -10,5 +10,5 @@ services:
         - PASSWD=${DL_PASSWD}
     volumes:
       - ./data:/opt/dataloader/data
-volumes:
-  dl-data:
+#volumes:
+#  dl-data:
