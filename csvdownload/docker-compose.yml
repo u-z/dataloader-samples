@@ -1,0 +1,14 @@
+version: '2'
+services:
+  dataloader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SITE=${DL_SITE}
+        - USRNAME=${DL_USRNAME}
+        - PASSWD=${DL_PASSWD}
+    volumes:
+      - ./data:/opt/dataloader/data
+volumes:
+  dl-data:
